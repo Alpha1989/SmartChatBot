@@ -1,0 +1,54 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye","No"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+		{"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+        },
+        {"tag": "options",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "responses": ["Select from below enter your choice \n 1. Tell you some motivational quotes. \n 2. Tell you some Jokes \n 3. I can search youtube video for you. "]
+        },
+        {"tag": "quotes",
+         "patterns": ["1", "motivational quotes", "tell me some motivational quotes", "motivational" ],
+         "responses": ["With the new day comes new strength and new thoughts. - Eleanor Roosevelt", "The secret of getting ahead is getting started. - Mark Twain", "It does not matter how slowly you go as long as you do not stop. - Confucius"],
+		 "context_set": "motivational_quotes"
+		},
+		{"tag": "morequotes",
+         "patterns": ["more quotes","tell me more"],
+         "responses": ["All our dreams can come true if we have the courage to pursue them. -Walt Disney", "Just when the caterpillar thought the world was ending, he turned into a butterfly. -Proverb","Opportunities don't happen, you create them. -Chris Grosser"],
+         "context_filter": "motivational_quotes"
+        },
+        {"tag": "jokes",
+         "patterns": ["2","tell me some jokes", "jokes", "some jokes please", "tell me a joke" ],
+         "responses": ["I ate a clock yesterday, it was very time-consuming", "Q. Whats the difference between ignorance and apathy? A. I dont know and I dont care.","Whats the difference between a good joke and a bad joke timing."],
+        "context_set": "more_jokes"
+		},
+        {"tag": "jokesagain",
+         "patterns": ["more jokes","tell me more joke"],
+         "responses": ["I’ve just written a song about tortillas; actually, it’s more of a rap.", "I woke up this morning and forgot which side the sun rises from, then it dawned on me.","I recently decided to sell my vacuum cleaner as all it was doing was gathering dust."],
+         "context_filter": "more_jokes"
+        },
+        {"tag": "search_youtube",
+         "patterns": ["3","search on youtube", "search video"],
+         "responses": ["give me title you want search"],
+         "context_set": ["search_on_youtube"]
+        }
+		,
+        {"tag": "search_by_title_on_youtube",
+         "patterns": ["title is"],
+         "responses": ["youtube_title"],
+         "context_filter": ["search_on_youtube"]
+        }
+   ]
+}
